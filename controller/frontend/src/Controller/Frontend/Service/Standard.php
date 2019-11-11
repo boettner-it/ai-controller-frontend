@@ -111,6 +111,7 @@ class Standard
 	{
 		$list = [];
 		$this->filter->setConditions( $this->filter->combine( '&&', $this->conditions ) );
+		$this->filter->setSlice( 0, 10000 );
 
 		foreach( $this->manager->searchItems( $this->filter, $this->domains ) as $id => $item ) {
 			$list[$id] = $this->manager->getProvider( $item, $item->getType() );
